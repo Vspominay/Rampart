@@ -1,0 +1,97 @@
+<ng-container *ngIf="display$ | async as display">
+    <section [class.open]="display === 'open'" (click)="close()">
+        <div class="puff-in-center" (click)="$event.stopPropagation()">
+            <button class="close" type="button" (click)="close()">X</button>
+            <div class="modal__inner">
+                <div class="modal__text">
+                    <div class="modal__text-title">
+                        <h1>📖</h1>
+                    </div>
+                    <div class="modal__text-content">
+                        <div class="modal__text-question">
+                            <h2 class="modal__text-subtitle">
+                                How I can create account?
+                            </h2>
+                            <p>
+                                &nbsp;&nbsp;If you want to add a new account to
+                                the list, you need to go to the
+                                <a routerLink="/create">corresponding</a> menu
+                                item. After filling in all the required fields,
+                                click the Create button
+                            </p>
+                        </div>
+
+                        <div class="modal__text-question">
+                            <h2 class="modal__text-subtitle">
+                                How I can generate a strong password?
+                            </h2>
+                            <p>
+                                &nbsp;&nbsp;In the
+                                <a routerLink="/create"
+                                    >menu for creating a new entry</a
+                                >
+                                there is a corresponding block for generating
+                                passwords. You need to select the
+                                characteristics for the password and click the
+                                generate button. The password will be
+                                automatically entered into the password field
+                                and copied to the clipboard.
+                            </p>
+                        </div>
+
+                        <div class="modal__text-question">
+                            <h2 class="modal__text-subtitle">
+                                How I can update data about profile?
+                            </h2>
+                            <p>
+                                &nbsp;&nbsp;Being in the
+                                <a routerLink="/storage">storage</a> menu item,
+                                click on the desired account, click on the show
+                                password button, and then on the edit button.
+                                Change the data and confirm the changes.
+                                Clicking on each field automatically copies the
+                                data.
+                            </p>
+                        </div>
+
+                        <div class="modal__text-question">
+                            <h2 class="modal__text-subtitle">
+                                How I can update delete account from the list?
+                            </h2>
+                            <p>
+                                &nbsp;&nbsp;Being in the
+                                <a routerLink="/storage">storage</a> menu item,
+                                click on the desired account, click on the show
+                                password button, and then on the delete button.
+                            </p>
+                        </div>
+
+                        <div class="modal__text-question">
+                            <h2 class="modal__text-subtitle">
+                                How I can change default icon for account card?
+                            </h2>
+                            <p>
+                                &nbsp;&nbsp;Being in the
+                                <a routerLink="/storage">storage</a> menu item,
+                                click on the desired account, click on the
+                                current icon, then select the required one from
+                                the list and confirm the actions.
+                            </p>
+                        </div>
+
+                        <div class="modal__text-question">
+                            <h2 class="modal__text-subtitle">
+                                How I can delete user account?
+                            </h2>
+                            <p>
+                                In the upper right corner, click on the
+                                username, then in the drop-down menu, click on
+                                the corresponding item and confirm your actions
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</ng-container>

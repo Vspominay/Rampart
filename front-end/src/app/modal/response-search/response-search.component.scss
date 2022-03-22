@@ -1,0 +1,34 @@
+@import "../modal/modal.component.scss";
+
+.header__search {
+    display: block;
+    position: relative;
+
+    .icon-search {
+        margin: 0;
+        position: absolute;
+        top: 55%;
+        left: 10px;
+        transform: translate(0, -50%);
+        color: $textColor;
+    }
+
+    input::placeholder {
+        color: $textColor;
+    }
+    input {
+        padding: 10px 30px 10px 46px;
+        background-color: $unActive;
+        border-radius: 20px;
+        color: $textColor;
+        width: 100%;
+        border: 0;
+    }
+}
+
+section {
+    background: transparent;
+    > div {
+        top: 80px;
+    }
+}

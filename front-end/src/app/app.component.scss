@@ -1,0 +1,17 @@
+.wrapper {
+    display: flex;
+    background: radial-gradient(
+        at 75% 70%,
+        rgb(55, 26, 64),
+        rgb(35, 14, 43) 47%
+    );
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    // min-height: 100vh;
+}
+.content-block {
+    flex-grow: 1;
+    margin: 0 auto;
+}

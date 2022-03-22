@@ -1,0 +1,80 @@
+@import "../modal/modal.component.scss";
+@import "../response-search/response-search.component.scss";
+@import "../../styles/loader.scss";
+
+section {
+    > div {
+        top: 40%;
+    }
+}
+
+.logo__content {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo__header {
+    display: flex;
+    justify-content: flex-end;
+    margin: 15px 0 35px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid $unActive;
+}
+.header__search {
+    max-width: 300px;
+}
+.logo__main {
+    flex-grow: 1;
+    overflow: auto;
+    margin-bottom: 35px;
+    max-height: 40vh;
+}
+.logo__footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    position: relative;
+}
+.col {
+    width: 50%;
+    padding: 0 15px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (min-width: 420px) {
+    .col {
+        width: 33.333%;
+    }
+}
+
+.logo__item {
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+
+    &:hover {
+        background-color: $unActive;
+    }
+
+    & img {
+        padding: 10px;
+        max-height: 90px !important;
+    }
+
+    &.active {
+        background-color: $unActive;
+    }
+}
+
+.dataIsNotFound,
+.lds-ripple {
+    position: relative;
+}

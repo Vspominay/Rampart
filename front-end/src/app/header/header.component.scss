@@ -1,0 +1,195 @@
+@import "../styles/colors.scss";
+
+.header {
+    background-color: #2d1436;
+    color: #fff;
+    padding: 20px 15px;
+
+    &__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &__search {
+        display: none;
+        &-mob {
+            color: $textColor;
+            font-size: 28px;
+            cursor: pointer;
+        }
+    }
+    &__info {
+        display: flex;
+        align-items: center;
+    }
+    &__tutorial {
+        cursor: pointer;
+        margin-right: 15px;
+    }
+    &__person {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        .icon-person {
+            font-size: 28px;
+            margin-right: 10px;
+        }
+    }
+
+    // === icon burger
+
+    &__burger {
+        display: flex;
+        align-items: center;
+        height: 15px;
+        padding: 5px 0;
+        cursor: pointer;
+        position: relative;
+    }
+    .burger-item,
+    .burger-item::before,
+    .burger-item::after {
+        width: 18px;
+        display: block;
+        height: 2px;
+        background: linear-gradient(
+            38deg,
+            rgb(255, 106, 0) 40%,
+            rgb(238, 9, 121) 65%
+        );
+        border-radius: 10px;
+    }
+    .burger-item::before,
+    .burger-item::after {
+        content: "";
+        position: absolute;
+    }
+    .burger-item::before {
+        top: 0;
+    }
+    .burger-item::after {
+        bottom: 1px;
+    }
+}
+
+@media (min-width: 768px) {
+    .header {
+        padding: 20px 50px;
+
+        &__search {
+            display: block;
+            position: relative;
+
+            &-mob {
+                display: none;
+            }
+            .icon-search {
+                margin: 0;
+                position: absolute;
+                top: 55%;
+                left: 10px;
+                transform: translate(0, -50%);
+                color: $textColor;
+            }
+
+            input::placeholder {
+                color: $textColor;
+            }
+            input {
+                padding: 10px 30px 10px 46px;
+                background-color: $unActive;
+                border-radius: 20px;
+                color: $textColor;
+                width: 300px;
+                border: 0;
+            }
+        }
+        &__tutorial {
+            margin-right: 55px;
+        }
+        .icon-person {
+            font-size: 36px;
+        }
+    }
+}
+@media (min-width: 1024px) {
+    .header {
+        font-size: 22px;
+
+        &__burger {
+            display: none;
+        }
+
+        &__tutorial {
+            margin-right: 80px;
+        }
+    }
+}
+//submenu
+
+.topmenu {
+    display: flex;
+    align-items: center;
+}
+
+.topmenu > li {
+    position: relative;
+    transition: 0.3s;
+    &:hover {
+        color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+        background-image: $gradient;
+    }
+}
+.submenu {
+    background: rgba($color: #1d0b23, $alpha: 0.85);
+    position: absolute;
+    left: -100px;
+    top: 100%;
+    height: fit-content;
+    z-index: 10;
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: 0 0;
+    transition: 0.5s ease-in-out;
+    border-radius: 15px;
+    padding: 15px !important;
+    border: 2px solid $textColor;
+
+    &.active {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+}
+@media (min-width: 768px) {
+    .submenu {
+        left: -50px;
+    }
+}
+.submenu a {
+    cursor: pointer;
+    white-space: nowrap;
+    color: $textColor;
+    font-size: 16px;
+    width: 100%;
+    display: inline-block;
+    & + & {
+        margin-top: 15px;
+    }
+    transition: 0.3s;
+
+    &:hover {
+        color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+        background-image: $gradient;
+    }
+}
+.submenu li:last-child a {
+    border-bottom: none;
+}
+.topmenu > li:hover .submenu {
+    opacity: 1;
+    transform: scaleY(1);
+}

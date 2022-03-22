@@ -1,0 +1,22 @@
+@import "../modal/modal.component.scss";
+@import "../../menu/menu.component.scss";
+
+.modal__inner {
+    text-align: center;
+    h1 {
+        margin-bottom: 20px;
+    }
+    div[class*="icon"] {
+        font-size: 25px;
+    }
+    .add-item {
+        font-size: 14px;
+        color: white;
+        padding: 5px 10px;
+    }
+    .menu-item {
+        a {
+            text-align: left;
+        }
+    }
+}

@@ -1,0 +1,25 @@
+.container {
+    background: radial-gradient(
+        at 75% 70%,
+        rgb(55, 26, 64),
+        rgb(35, 14, 43) 47%
+    );
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    min-height: 100vh;
+
+    font-size: 18px;
+}
+@media (min-width: 768px) {
+    .container {
+        padding: 40px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .container {
+        padding: 60px;
+    }
+}

@@ -1,0 +1,27 @@
+<div class="menu">
+    <div class="menu__inner">
+        <img
+            src="../../assets/img/Logo.png"
+            width="158"
+            height="45"
+            alt="rampart"
+            class="logo"
+        />
+        <span class="line"></span>
+        <nav>
+            <ul class="menu__items">
+                <li
+                    [ngClass]="{
+                        active: item.router == activeItem
+                    }"
+                    *ngFor="let item of menu"
+                    routerLink="{{ item.router }}"
+                    class="menu-item"
+                >
+                    <div class="{{ item.icon }}">{{ item.content }}</div>
+                    <a>{{ item.text }}</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

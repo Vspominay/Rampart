@@ -1,0 +1,94 @@
+<ng-container *ngIf="display$ | async as display">
+    <section [class.open]="display === 'open'" (click)="close()">
+        <div class="puff-in-center" (click)="$event.stopPropagation()">
+            <button class="close" type="button" (click)="close()">X</button>
+            <div class="modal__inner">
+                <form autocomplete="off" class="form" [formGroup]="formGroup">
+                    <h1>Update data</h1>
+
+                    <div class="input-block">
+                        <span>Title</span>
+                        <div class="search">
+                            <span
+                                [class.active]="_title?.errors"
+                                class="requerid"
+                                >Requeried field</span
+                            >
+                            <input
+                                formControlName="title"
+                                type="text"
+                                placeholder="Name of note..."
+                                [(ngModel)]="currentPassword.title"
+                            />
+
+                            <div class="icon-text"></div>
+                        </div>
+                    </div>
+                    <div class="input-block">
+                        <span>User name</span>
+                        <div class="search">
+                            <span
+                                [class.active]="_email?.errors"
+                                class="requerid"
+                                >Requeried field</span
+                            >
+                            <input
+                                formControlName="email"
+                                type="text"
+                                placeholder="User name or email..."
+                                [(ngModel)]="currentPassword.email"
+                            />
+
+                            <div class="icon-user"></div>
+                        </div>
+                    </div>
+                    <div class="input-block">
+                        <span>Site URL</span>
+                        <div class="search">
+                            <input
+                                formControlName="url"
+                                type="url"
+                                placeholder="https://"
+                                [(ngModel)]="currentPassword.url"
+                            />
+                            <div class="icon-url"></div>
+                        </div>
+                    </div>
+                    <div class="input-block">
+                        <span>Password</span>
+                        <div class="search searchPass">
+                            <span
+                                [class.active]="_password?.errors"
+                                class="requerid"
+                                >Requeried field</span
+                            >
+
+                            <input
+                            autocomplete="new-password"
+
+                                formControlName="password"
+                                #userinput
+                                class="password"
+                                placeholder="Password..."
+                                [(ngModel)]="currentPassword.password"
+                            />
+                            <div class="icon-password"></div>
+                        </div>
+                    </div>
+                    <div
+                        [ngClass]="{
+                            disabled:
+                                _title?.errors ||
+                                _email?.errors ||
+                                _password?.errors
+                        }"
+                        class="item__button"
+                        (click)="update()"
+                    >
+                        <a> Update</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</ng-container>

@@ -1,0 +1,26 @@
+<ng-container *ngIf="display$ | async as display">
+    <section [class.open]="display === 'open'" (click)="close()">
+        <div class="puff-in-center" (click)="$event.stopPropagation()">
+            <button class="close" type="button" (click)="close()">X</button>
+            <div class="modal__inner">
+                <h1>Menu</h1>
+
+                <nav>
+                    <ul class="menu__items">
+                        <li
+                            *ngFor="let item of menu"
+                            routerLink="{{ item.router }}"
+                            class="menu-item"
+                            (click)="selectMenuItem()"
+                        >
+                            <div class="{{ item.icon }}">
+                                {{ item.content }}
+                            </div>
+                            <a>{{ item.text }}</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </section>
+</ng-container>

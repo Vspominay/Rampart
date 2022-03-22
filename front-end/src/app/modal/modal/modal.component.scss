@@ -1,0 +1,128 @@
+@import "../../styles/button.scss";
+@import "../../styles/search-input.scss";
+@import "../../new-login/new-login.component.scss";
+
+.puff-in-center {
+    animation: slide-in-blurred-top 0.6s cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+@keyframes slide-in-blurred-top {
+    0% {
+        transform: translate(-50%, -200%) scaleY(2.5) scaleX(0.2);
+        transform-origin: 50% 0%;
+        filter: blur(40px);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(-50%, -40%) scaleY(1) scaleX(1);
+        transform-origin: 50% 50%;
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+
+@keyframes puff-in-center {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+section {
+    z-index: 3;
+    visibility: hidden;
+    opacity: 0;
+    font-size: 16px;
+    color: $textColor;
+
+    &.open {
+        visibility: inherit;
+        opacity: 1;
+    }
+
+    display: block;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background: rgba($color: #1d0b23, $alpha: 0.85);
+    transition: 0.2s linear;
+
+    > div {
+        max-height: 80vh;
+        overflow: auto;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -40%);
+        background-color: #1c0a22;
+        padding: 30px;
+        max-width: 300px;
+        width: 100%;
+        border: 2px solid $textColor;
+        border-radius: 20px;
+        box-shadow: 0 0 8px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    button.close {
+        background: none;
+        color: inherit;
+        border: none;
+        font: inherit;
+        cursor: pointer;
+        outline: none;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        padding: 16px;
+    }
+    .modal__inner {
+        height: 100%;
+        .form {
+            padding-right: 0;
+            color: #fff;
+            margin-bottom: 0;
+            h1 {
+                margin-bottom: 30px;
+                font-size: 24px;
+                text-align: center;
+            }
+            .input-block {
+                font-size: 16px;
+            }
+            .item__button {
+                animation: none;
+            }
+        }
+        .input-block {
+            .search {
+                input {
+                    min-width: 275px;
+                }
+            }
+            .field-name {
+                margin-right: 25px;
+            }
+        }
+    }
+}
+@media (min-width: 480px) {
+    section {
+        > div {
+            transform: translate(-50%, -50%);
+            max-width: 470px;
+        }
+    }
+    .form {
+        .input-block {
+            flex-direction: row;
+        }
+    }
+}

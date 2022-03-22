@@ -1,0 +1,38 @@
+@import "./colors.scss";
+
+.search {
+    display: block;
+    position: relative;
+
+    &-mob {
+        display: none;
+    }
+    div[class*="icon"] {
+        margin: 0;
+        position: absolute;
+        top: 55%;
+        left: 10px;
+        transform: translate(0, -50%);
+        color: $textColor;
+        transition: 0.2s ease;
+    }
+
+    input::placeholder {
+        color: $textColor;
+    }
+
+    input {
+        padding: 10px 30px 10px 46px;
+        background-color: $unActive;
+        border-radius: 20px;
+        color: $textColor;
+        width: 280px;
+        border: 0;
+    }
+    input:focus + div[class*="icon"] {
+        color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+        background-image: $gradient;
+    }
+}

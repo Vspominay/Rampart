@@ -1,0 +1,58 @@
+@import "../styles/button.scss";
+@import "../../container.scss";
+
+.container {
+    display: flex;
+    background: center no-repeat url("../../assets/img/notFoundBC.png");
+}
+.found {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__inner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    &__text {
+        pointer-events: none;
+        text-align: center;
+        h1 {
+            font-size: 120px;
+        }
+    }
+    .item__button {
+        margin-top: 25px;
+    }
+}
+@media (min-width: 420px) {
+    .found {
+        &__text {
+            h1 {
+                font-size: 160px;
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .found {
+        &__text {
+            h1 {
+                font-size: 190px;
+            }
+        }
+    }
+}
+@media (min-width: 1024px) {
+    .found {
+        &__text {
+            h1 {
+                font-size: 230px;
+            }
+        }
+    }
+}

@@ -1,0 +1,38 @@
+@import "./colors.scss";
+
+
+.dataIsNotFound,
+.lds-ripple {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    height: 80px;
+    width: 300px;
+}
+.dataIsNotFound {
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-image: $gradient;
+    animation-name: showDetailAnimation;
+    animation-duration: 2s;
+    text-align: center;
+}
+.lds-ripple {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+}
+.lds-ripple div {
+    position: absolute;
+    border: 4px solid rgb(238, 9, 121);
+    opacity: 1;
+    border-radius: 50%;
+    animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+.lds-ripple div:nth-child(2) {
+    animation-delay: -0.5s;
+}

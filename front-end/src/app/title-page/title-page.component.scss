@@ -1,0 +1,228 @@
+@import "../styles/button.scss";
+@import "../styles/search-input.scss";
+@import "../../container.scss";
+
+$bg-color: transparent;
+$link-color: #fff;
+$link-hover: #fff;
+
+$header-heigth: 80px;
+$header-padding: $header-heigth / 2;
+
+$distance-between-links: 20px;
+
+.header {
+    // top: 0;
+    // left: 0;
+    // right: 0;
+    // position: absolute;
+    background-color: $bg-color;
+    max-height: 90px;
+
+    &__inner {
+        padding: $header-padding 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__menu {
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+    &__burger {
+        display: flex;
+        align-items: center;
+        height: 15px;
+        padding: 5px 0;
+        margin-left: 15px;
+        cursor: pointer;
+        position: relative;
+    }
+    .burger-item,
+    .burger-item::before,
+    .burger-item::after {
+        width: 18px;
+        display: block;
+        height: 2px;
+        background-color: $link-hover;
+        border-radius: 10px;
+    }
+    .burger-item::before,
+    .burger-item::after {
+        content: "";
+        position: absolute;
+    }
+    .burger-item::before {
+        top: 0;
+    }
+    .burger-item::after {
+        bottom: 1px;
+    }
+    .registration {
+        font-size: 16px;
+        border-radius: 25px;
+        padding: 7px 14px;
+        position: relative;
+
+        &::before {
+            cursor: pointer;
+            transition: 0.3s ease;
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 25px;
+            padding: 2px;
+            background: $gradient;
+
+            -webkit-mask: linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            animation: animationGradient 3s linear infinite;
+        }
+    }
+
+    &__list {
+        display: flex;
+        align-items: center;
+        li + li {
+            margin-left: $distance-between-links;
+        }
+        li a {
+            color: $link-color;
+            cursor: pointer;
+            transition: 0.2s ease-in;
+            &:hover {
+                color: $link-hover;
+            }
+        }
+
+        & li:first-child {
+            display: none;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .header {
+        &__inner {
+            justify-content: start;
+        }
+
+        &__list {
+            & li:first-child {
+                display: block;
+            }
+        }
+
+        .registration {
+            font-size: 18px;
+            padding: 10px 20px;
+        }
+    }
+}
+
+@media (min-width: 1024px) {
+    .header {
+        &__list {
+            font-size: 18px;
+            li + li {
+                margin-left: $distance-between-links + 15;
+            }
+        }
+    }
+}
+@media (min-width: 1280px) {
+    .header {
+        &__list {
+            li + li {
+                margin-left: $distance-between-links + 30;
+            }
+        }
+    }
+}
+
+.container {
+    padding: 0 20px;
+}
+@media (min-width: 768px) {
+    .container {
+        padding: 0 40px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .container {
+        margin: 0 auto;
+    }
+}
+
+.content {
+    padding: 40px 0;
+    &__inner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    &__text {
+        margin-top: 12%;
+        text-align: center;
+        h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .content {
+        &__text {
+            h1 {
+                font-size: 52px;
+            }
+        }
+    }
+}
+
+// === form
+.authForm {
+    & > * {
+        margin-top: 25px;
+    }
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-block {
+    .search {
+        .requerid {
+            font-size: 12px;
+            position: absolute;
+            top: -20px;
+            left: 15px;
+            font-weight: normal;
+            pointer-events: none;
+            color: #ed2828;
+            transition: 0.3s;
+            opacity: 0;
+
+            &.active {
+                opacity: 1;
+            }
+        }
+    }
+
+    span:first-child {
+        margin-bottom: 25px;
+    }
+}

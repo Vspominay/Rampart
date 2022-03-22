@@ -1,0 +1,145 @@
+body {
+    background: radial-gradient(
+        at 75% 70%,
+        rgb(55, 26, 64),
+        rgb(35, 14, 43) 47%
+    );
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+/* Указываем box sizing */
+html {
+    box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+    padding: 0;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+    list-style: none;
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+a {
+    text-decoration: none;
+}
+/* Упрощаем работу с изображениями */
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: top;
+}
+
+/* input:active, :hover, :focus {
+    outline: 0;
+    outline-offset: 0;
+  } */
+
+::-webkit-input-placeholder {
+    /* WebKit browsers */
+    color: black;
+}
+:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: black;
+}
+::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: black;
+}
+:-ms-input-placeholder {
+    /* Internet Explorer 10+ */
+    color: black;
+}
+
+// input {
+//     outline: none;
+// }
+input:-webkit-autofill {
+    -webkit-text-fill-color: $textColor;
+    -webkit-box-shadow: 0 0 0px 1000px $unActive inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+textarea {
+    resize: none;
+}
+/* Указываем понятную периодичность в потоке данных у article*/
+article > * + * {
+    margin-top: 1em;
+}
+a {
+    color: #000;
+}
+
+button {
+    border: 0;
+}
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+    outline: none;
+}
+
+body {
+    font-family: "Nunito", sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    letter-spacing: 0.1em;
+    overflow-x: hidden;
+    margin: 0;
+    min-height: 100vh;
+    color: #fff;
+}
+html,
+body {
+    scrollbar-color: $unActive $textColor; /* «цвет ползунка» «цвет полосы скроллбара» */
+    scrollbar-width: thin; /* толщина */
+}
+
+::-webkit-scrollbar {
+    background-color: $textColor;
+    width: 9px;
+}
+
+/* ползунок скроллбара */
+::-webkit-scrollbar-thumb {
+    background-color: $unActive;
+}

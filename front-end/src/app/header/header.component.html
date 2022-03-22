@@ -1,0 +1,45 @@
+<header class="header">
+    <div class="header__inner">
+        <div (click)="openBurger()" class="header__burger">
+            <span class="burger-item"></span>
+        </div>
+
+        <div (click)="openSearchBar()" class="header__search-mob">
+            <div class="icon-search"></div>
+        </div>
+
+        <div class="header__search">
+            <div class="icon-search"></div>
+            <input
+                type="text"
+                (input)="search(termInput.value)"
+                #termInput
+                placeholder="Search..."
+                [value]="currentText"
+            />
+        </div>
+        <nav class="header__info">
+            <ul class="topmenu">
+                <li><span
+                    (click)="opentutorial()"  
+                    class="header__tutorial">Tutorial</span></li>
+                <li>
+                    <div
+                        class="header__person submenu-link"
+                        (click)="showSubMenu()"
+                    >
+                        <div class="icon-person"></div>
+                        <div class="person-name">{{ personName }}</div>
+                        <div class="icon-arrow"></div>
+                    </div>
+                    <ul class="submenu">
+                        <li>
+                            <a (click)="showModalDelete()">Delete account</a>
+                        </li>
+                        <li><a (click)="logout()">Go out</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>

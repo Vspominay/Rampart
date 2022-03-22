@@ -1,0 +1,92 @@
+<ng-container>
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <div class="header__logo">
+                    <img
+                        src="../../assets/img/Logo.png"
+                        width="155"
+                        height="45"
+                        alt="logo"
+                    />
+                </div>
+                <div class="header__menu">
+                    <nav class="header__menu-nav">
+                        <ul class="header__list">
+                            <li class="header__list-item">First time here?</li>
+                            <li
+                                class="header__list-item registration"
+                                (click)="openRegistration()"
+                            >
+                                <a href="#news"> Registration</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="content">
+        <div class="container">
+            <div class="content__inner">
+                <div class="content__text">
+                    <h1>Protect your data online!</h1>
+                    <h4>
+                        Forget about remembering passwords. Secure storage and
+                        unique password generation will make your life easier!
+                    </h4>
+                </div>
+
+                <form
+                    class="authForm"
+                    [formGroup]="authForm"
+                    (ngSubmit)="onSubmit()"
+                >
+                    <div class="input-block">
+                        <div class="search">
+                            <span
+                                [class.active]="_loginError.isError"
+                                class="requerid"
+                                >{{ _loginError.msg }}</span
+                            >
+                            <input
+                                id="login"
+                                type="email"
+                                formControlName="login"
+                                placeholder="Login.."
+                            />
+                            <div class="icon-user"></div>
+                        </div>
+                    </div>
+                    <div class="input-block">
+                        <div class="search">
+                            <span
+                                [class.active]="_passError.isError"
+                                class="requerid"
+                                >{{ _passError.msg }}</span
+                            >
+                            <input
+                                id="password"
+                                type="password"
+                                formControlName="password"
+                                placeholder="Password.."
+                            />
+                            <div class="icon-password"></div>
+                        </div>
+                    </div>
+
+                    <button
+                        [ngClass]="{
+                            disabled: _email?.errors || _password?.errors
+                        }"
+                        class="item__button"
+                        type="submit"
+                    >
+                        Sign in
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</ng-container>

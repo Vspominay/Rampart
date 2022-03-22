@@ -1,0 +1,66 @@
+<ng-container *ngIf="display$ | async as display">
+    <section [class.open]="display === 'open'" (click)="close()">
+        <div class="puff-in-center" (click)="$event.stopPropagation()">
+            <button class="close" type="button" (click)="close()">X</button>
+            <div class="modal__inner">
+                <div class="logo__content">
+                    <header class="logo__header">
+                        <div class="header__search">
+                            <div class="icon-search"></div>
+                            <input
+                                (input)="searchLogo(termInput.value)"
+                                type="text"
+                                #termInput
+                                placeholder="Netflix, YouTube..."
+                            />
+                        </div>
+                    </header>
+                    <main class="logo__main">
+                        <app-infinite-scroll
+                            (scrolled)="infititeLoad()"
+                            class="row"
+                        >
+                            <div class="dataIsNotFound" *ngIf="dataIsNotFound">
+                                <h2>Data is not found</h2>
+                            </div>
+
+                            <div
+                                class="lds-ripple"
+                                *ngIf="!LogoImages.length && !dataIsNotFound"
+                            >
+                                <div></div>
+                                <div></div>
+                            </div>
+                            <div class="col" *ngFor="let logo of LogoImages">
+                                <div
+                                    (click)="selectLogo(logo)"
+                                    class="logo__item"
+                                    [class.active]="
+                                        logo._id === selectedImage.id.toString()
+                                    "
+                                >
+                                    <img
+                                        src="{{ logo.src }}"
+                                        height="90"
+                                        alt="{{ logo.title }}"
+                                    />
+                                </div>
+                            </div>
+                        </app-infinite-scroll>
+                    </main>
+                    <footer class="logo__footer">
+                        <div
+                            (click)="setLogo()"
+                            class="item__button"
+                            [class.disabled]="!selectedImage.isSelect"
+                        >
+                            <a>
+                                <span>Set Icon</span>
+                            </a>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </section>
+</ng-container>

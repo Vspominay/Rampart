@@ -1,0 +1,154 @@
+<div class="grid">
+    <div class="header__block">
+        <app-header></app-header>
+    </div>
+    <div class="menu__block">
+        <app-menu> </app-menu>
+    </div>
+
+    <div class="container">
+        <div class="inner-block">
+            <form autocomplete="off" class="form" [formGroup]="formGroup">
+                <h1>Create a new login</h1>
+
+                <div class="input-block">
+                    <span>Title</span>
+                    <div class="search">
+                        <span [class.active]="_title?.errors" class="requerid"
+                            >Requeried field</span
+                        >
+                        <input
+                            formControlName="title"
+                            type="text"
+                            placeholder="Name of note..."
+                        />
+
+                        <div class="icon-text"></div>
+                    </div>
+                </div>
+                <div class="input-block">
+                    <span>User name</span>
+                    <div class="search">
+                        <span [class.active]="_email?.errors" class="requerid"
+                            >Requeried field</span
+                        >
+                        <input
+                            formControlName="email"
+                            type="text"
+                            placeholder="User name or email..."
+                        />
+
+                        <div class="icon-user"></div>
+                    </div>
+                </div>
+                <div class="input-block">
+                    <span>Site URL</span>
+                    <div class="search">
+                        <input
+                            formControlName="url"
+                            type="url"
+                            placeholder="https://"
+                        />
+                        <div class="icon-url"></div>
+                    </div>
+                </div>
+                <div class="input-block">
+                    <span>Password</span>
+                    <div
+                        class="search searchPass"
+                        [class.active]="passwordInputType == 'text'"
+                    >
+                        <span
+                            [class.active]="_password?.errors"
+                            class="requerid"
+                            >Requeried field</span
+                        >
+
+                        <input
+                            autocomplete="new-password"
+                            formControlName="password"
+                            #userinput
+                            class="password"
+                            type="{{ passwordInputType }}"
+                            placeholder="Password..."
+                            [(ngModel)]="password"
+                        />
+                        <div class="icon-password"></div>
+                    </div>
+                </div>
+                <div
+                    [ngClass]="{
+                        disabled:
+                            _title?.errors ||
+                            _email?.errors ||
+                            _password?.errors,
+                        created: buttonCreateText === '✓'
+                    }"
+                    class="item__button"
+                    (click)="createAccount()"
+                >
+                    <a>
+                        <span>{{ buttonCreateText }}</span>
+                    </a>
+                </div>
+            </form>
+
+            <div class="generateBlock">
+                <h1>Generate password</h1>
+
+                <div class="icon-cube"></div>
+                <div
+                    class="alertCopy"
+                    [class.active]="passwordInputType == 'text'"
+                >
+                    Password copied to clipboard
+                </div>
+
+                <div class="container-generator">
+                    <div
+                        class="length range__slider"
+                        data-min="4"
+                        data-max="32"
+                    >
+                        <div class="length__title field-title" data-length="0">
+                            length: {{ sliderProgress }}
+                        </div>
+                        <input
+                            [formControl]="form"
+                            id="slider"
+                            type="range"
+                            min="4"
+                            max="32"
+                        />
+                    </div>
+                    <div class="settings">
+                        <span class="settings__title field-title"
+                            >settings</span
+                        >
+
+                        <div
+                            class="setting"
+                            *ngFor="let checkbox of checkboxes"
+                        >
+                            <input
+                                type="checkbox"
+                                id="{{ checkbox.option }}"
+                                [(ngModel)]="checkbox.checked"
+                            />
+                            <label for="{{ checkbox.option }}">{{
+                                checkbox.text
+                            }}</label>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="item__button"
+                    (click)="onGenerate()"
+                    (click)="copyInputMessage(userinput)"
+                >
+                    <a> Generate</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

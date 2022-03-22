@@ -1,0 +1,82 @@
+@font-face {
+    font-family: "icomoon";
+    src: url("../../assets/fonts/icomoon.eot?h9tybp");
+    src: url("../../assets/fonts/icomoon.eot?h9tybp#iefix")
+            format("embedded-opentype"),
+        url("../../assets/fonts/icomoon.ttf?h9tybp") format("truetype"),
+        url("../../assets/fonts/icomoon.woff?h9tybp") format("woff"),
+        url("../../assets/fonts/icomoon.svg?h9tybp#icomoon") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+[class^="icon-"]::before,
+[class*=" icon-"]::before {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: "icomoon" !important;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-update:before {
+    content: "\e910";
+}
+.icon-cancel:before {
+    content: "\e911";
+}
+.icon-copy:before {
+    content: "\e90e";
+}
+.icon-correct:before {
+    content: "\e90f";
+}
+.icon-cube:before {
+    content: "\e90c";
+}
+.icon-url:before {
+    content: "\e90a";
+}
+.icon-secur:before {
+    content: "\e90b";
+}
+.icon-text:before {
+    content: "\e90d";
+}
+.icon-person:before {
+    content: "\e900";
+}
+.icon-storage:before {
+    content: "\e901";
+}
+.icon-search:before {
+    content: "\e902";
+}
+.icon-security:before {
+    content: "\e903";
+}
+.icon-user:before {
+    content: "\e904";
+}
+.icon-delete:before {
+    content: "\e905";
+}
+.icon-eye:before {
+    content: "\e906";
+}
+.icon-arrow:before {
+    content: "\e907";
+}
+.icon-message:before {
+    content: "\e908";
+}
+.icon-password:before {
+    content: "\e909";
+}

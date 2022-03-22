@@ -1,0 +1,121 @@
+<div class="grid">
+    <div class="header__block">
+        <app-header></app-header>
+    </div>
+    <div class="menu__block">
+        <app-menu> </app-menu>
+    </div>
+
+    <div class="container">
+        <div class="dataIsNotFound" *ngIf="dataIsNotFound">
+            <h2>Data is not found</h2>
+        </div>
+        <div class="lds-ripple" *ngIf="!passwords.length && !dataIsNotFound">
+            <div></div>
+            <div></div>
+        </div>
+
+        <app-infinite-scroll (scrolled)="infititeLoad()" class="row">
+            <div class="col" *ngFor="let password of passwords">
+                <div
+                    class="item"
+                    [ngClass]="{
+                        showDetails: password._id !== activeId,
+                        hideDetails: password._id === activeId
+                    }"
+                >
+                    <div (click)="changeLogo(password)" class="item__logo">
+                        <img src="{{ password.img }}" height="90" alt="logo" />
+                    </div>
+                    <div class="item__name">{{ password.title }}</div>
+                    <div class="item__web">{{ password.email }}</div>
+                    <div class="item__password"></div>
+
+                    <div class="item__button" (click)="setActive(password._id)">
+                        <a> See password</a>
+                    </div>
+                </div>
+
+                <div
+                    class="item item-inform"
+                    [ngClass]="{
+                        showDetails: password._id === activeId,
+                        gradBorder: password._id === activeId,
+                        hideDetails: password._id !== activeId
+                    }"
+                >
+                    <div class="supportFlex" (click)="copyInputMessage(title)">
+                        <span>Title:</span>
+                        <div class="inform__title search">
+                            <input
+                                class="inform__title-field"
+                                type="text"
+                                value="{{ password.title }}"
+                                readonly
+                                #title
+                            />
+                            <div class="icon-copy"></div>
+                        </div>
+                    </div>
+                    <div class="supportFlex" (click)="copyInputMessage(name)">
+                        <span>User name:</span>
+
+                        <div class="inform__title search">
+                            <input
+                                class="inform__title-field"
+                                type="text"
+                                value="{{ password.email }}"
+                                readonly
+                                #name
+                            />
+                            <div class="icon-copy"></div>
+                        </div>
+                    </div>
+                    <div class="supportFlex" (click)="copyInputMessage(url)">
+                        <span>Site URL:</span>
+
+                        <div class="inform__title search">
+                            <input
+                                class="inform__title-field"
+                                type="text"
+                                value="{{ password.url }}"
+                                readonly
+                                #url
+                            />
+                            <div class="icon-copy"></div>
+                        </div>
+                    </div>
+                    <div class="supportFlex" (click)="copyInputMessage(pass)">
+                        <span>Password:</span>
+
+                        <div class="inform__title search">
+                            <input
+                                class="inform__title-field"
+                                type="text"
+                                value="{{ password.password }}"
+                                readonly
+                                #pass
+                            />
+                            <div class="icon-copy"></div>
+                        </div>
+                    </div>
+                    <div class="footer">
+                        <span
+                            class="icon-delete delete"
+                            (click)="openPrompt(password)"
+                        ></span>
+
+                        <div class="item__button" (click)="setUnActive()">
+                            <a> Hide</a>
+                        </div>
+
+                        <span
+                            class="icon-update update"
+                            (click)="openModal(password)"
+                        ></span>
+                    </div>
+                </div>
+            </div>
+        </app-infinite-scroll>
+    </div>
+</div>

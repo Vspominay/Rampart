@@ -1,0 +1,21 @@
+<ng-container *ngIf="display$ | async as display">
+    <section [class.open]="display === 'open'" (click)="close()">
+        <div class="puff-in-center" (click)="$event.stopPropagation()">
+            <div class="modal__inner">
+                <div class="modal__icon icon-delete"></div>
+
+                <div class="modal__question">
+                    <h2>Are you sure you want to delete this account?</h2>
+                </div>
+                <div class="modal__control">
+                    <div class="item__button" (click)="close()">
+                        <a> Cancel</a>
+                    </div>
+                    <div class="item__button" (click)="deleteAccount()">
+                        <a> Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</ng-container>

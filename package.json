@@ -1,0 +1,31 @@
+{
+  "name": "rampart",
+  "version": "1.0.0",
+  "description": "this is my first MEAN application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index"
+  },
+  "dependencies": {
+    "bcryptjs": "*",
+    "body-parser": "*",
+    "cors": "*",
+    "express": "*",
+    "express-session": "^1.17.2",
+    "jsonwebtoken": "*",
+    "mongoose": "*",
+    "passport": "*",
+    "passport-jwt": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Vspominay/Rampart.git"
+  },
+  "author": "Vspominay",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vspominay/Rampart/issues"
+  },
+  "homepage": "https://github.com/Vspominay/Rampart#readme"
+}

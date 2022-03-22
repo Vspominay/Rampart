@@ -1,0 +1,41 @@
+@import "./colors.scss";
+
+.item {
+    &__button {
+        flex: 0 0 auto;
+        padding: 15px 30px;
+        border-radius: 30px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $unActive;
+        max-width: 250px;
+        color: #694b73;
+
+        &.disabled {
+            pointer-events: none;
+            cursor: default;
+        }
+        a {
+            color: #694b73;
+            font-size: 14px;
+            font-weight: bold;
+            transition: 0.3s linear;
+        }
+        z-index: 2;
+        transition: 0.3s linear;
+        &:hover {
+            color: #fff;
+
+            background: linear-gradient(
+                90deg,
+                rgb(238, 9, 121) 13%,
+                rgb(255, 106, 0) 87%
+            );
+            a {
+                color: #fff;
+            }
+        }
+    }
+}

@@ -1,0 +1,18 @@
+<ng-container *ngIf="display$ | async as display">
+    <section [class.open]="display === 'open'" (click)="close()">
+        <div class="puff-in-center" (click)="$event.stopPropagation()">
+            <div class="modal__inner">
+                <div class="header__search">
+                    <div class="icon-search"></div>
+                    <input
+                        type="text"
+                        (input)="search(termInput.value)"
+                        #termInput
+                        placeholder="Search..."
+                        [value]="currentText"
+                    />
+                </div>
+            </div>
+        </div>
+    </section>
+</ng-container>
