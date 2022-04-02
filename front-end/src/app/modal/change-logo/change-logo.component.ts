@@ -65,21 +65,23 @@ selectLogo(logo:any){
     this.selectedImage.isSelect = true;
     this.selectedImage.src = logo.src;
 }
-setLogo(){
-    this.close();
-    let [src, _id] = [this.selectedImage.src, this.logoService.selectedAccount.getValue() + ""];
-    this.logoService.updateLogo({src, _id})
-        .subscribe(res => {
-            if (res.success) {
-                this.passwordService.term.next("");                
-            }
-            else{
-                console.log(res.msg);
-            }            
-        })}
+        setLogo(){
+            this.close();
+            let [src, _id] = [this.selectedImage.src, this.logoService.selectedAccount.getValue() + ""];
+            this.logoService.updateLogo({src, _id})
+                .subscribe(res => {
+                    this.generalModal.blockOverflow(false);
+
+                    if (res.success) {
+                        this.passwordService.term.next("");                
+                    }
+                    else{
+                        console.log(res.msg);
+                    }            
+                })}
 
         searchLogo(title: string){          
-            this.subject.next(title);
+                    this.subject.next(title);
         }
 
         infititeLoad(){

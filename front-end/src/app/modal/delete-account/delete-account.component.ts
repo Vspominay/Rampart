@@ -37,7 +37,9 @@ export class DeleteAccountComponent implements OnInit {
     deleteUser(){
         const id = this.authService.user.id;
         this.passwordService.deleteAccount(id)
-            .subscribe(res => {                                
+            .subscribe(res => {          
+          this.generalModal.blockOverflow(false);
+
                 if (res.success) {
                     this.close();
                     this.authService.logout();
