@@ -70,8 +70,8 @@ selectLogo(logo:any){
             let [src, _id] = [this.selectedImage.src, this.logoService.selectedAccount.getValue() + ""];
             this.logoService.updateLogo({src, _id})
                 .subscribe(res => {
-                    this.generalModal.blockOverflow(false);
 
+                    this.generalModal.blockOverflow(false);
                     if (res.success) {
                         this.passwordService.term.next("");                
                     }
